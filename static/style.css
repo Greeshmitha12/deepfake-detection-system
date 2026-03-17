@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial;
+    background: linear-gradient(to right, #0f172a, #1e293b);
+    color: white;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: #020617;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-top: 120px;
+}
+
+/* Button */
+.btn {
+    background: #3b82f6;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #2563eb;
+    transform: scale(1.05);
+}
+
+/* RESULT CARD */
+.result-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    width: 60%;
+    margin: auto;
+    backdrop-filter: blur(10px);
+}
+
+/* STATUS TEXT */
+.status {
+    font-size: 32px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.status.Real {
+    color: #4CAF50;
+}
+
+.status.Fake {
+    color: #ff4d4d;
+}
+
+/* BADGE */
+.badge {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+/* PROGRESS BAR */
+.progress-container {
+    width: 80%;
+    background: #ddd;
+    border-radius: 20px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 25px;
+    background: linear-gradient(90deg, #4CAF50, #00c6ff);
+    text-align: center;
+    color: white;
+    line-height: 25px;
+    font-weight: bold;
+    transition: width 1s ease-in-out;
+}
+
+/* RESULT TEXT (OLD SUPPORT) */
+.Fake {
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.Real {
+    color: lightgreen;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* SPINNER */
+.spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #4CAF50;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* VIDEO */
+video {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}

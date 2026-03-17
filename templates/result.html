@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    <h2>Deepfake Detection</h2>
+</nav>
+
+<div class="hero">
+
+    <div class="result-card">
+
+        <h1>Analysis Result</h1>
+
+        <p><strong>File:</strong> {{ filename }}</p>
+
+        <!-- VIDEO -->
+        <video width="400" controls>
+            <source src="{{ url_for('static', filename=filename) }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- RESULT -->
+        <h2 class="status {{ result }}">
+            {{ result }}
+        </h2>
+
+        <!-- BADGE -->
+        <div class="badge">
+            {% if result == "Real" %}
+                🟢 AI Verified Content
+            {% else %}
+                🔴 Suspicious / Deepfake Detected
+            {% endif %}
+        </div>
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar">
+                {{ confidence }}%
+            </div>
+        </div>
+
+        <!-- 🔥 NEW INFO (ADD HERE) -->
+        <p><strong>Confidence:</strong> {{ confidence }}%</p>
+        <p><strong>Frames analyzed:</strong> {{ frames }}</p>
+        <p><strong>Processing time:</strong> {{ time }} sec</p>
+
+        <br>
+
+        <a href="/upload" class="btn">Try Another</a>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var confidence = parseFloat("{{ confidence }}");
+    document.getElementById("progressBar").style.width = confidence + "%";
+});
+</script>
+
+</body>
+</html>

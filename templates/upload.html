@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Video</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    <h2>Deepfake Detection</h2>
+</nav>
+
+<div class="hero">
+    <h1>Upload Video</h1>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data" onsubmit="showLoader()">
+        
+        <input type="file" id="fileInput" name="video" required>
+        
+        <br><br>
+
+        <button type="submit" class="btn">Analyze Video</button>
+
+    </form>
+
+    <!-- VIDEO PREVIEW -->
+    <video id="preview" width="300" controls style="display:none; margin-top:20px;"></video>
+
+    <!-- LOADER -->
+    <div id="loader" style="display:none; margin-top:20px;">
+        <h3>🔍 Analyzing video... Please wait</h3>
+        <div class="spinner"></div>
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+document.getElementById("fileInput").onchange = function(event) {
+    let file = event.target.files[0];
+    let url = URL.createObjectURL(file);
+
+    let video = document.getElementById("preview");
+    video.src = url;
+    video.style.display = "block";
+};
+
+function showLoader() {
+    document.getElementById("loader").style.display = "block";
+}
+</script>
+
+</body>
+</html>
